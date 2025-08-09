@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+     <html lang="en">
+     <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>My Pet ID</title>
+       <link rel="stylesheet" href="/base/styles.css">
+       <script src="https://cdn.auth0.com/js/auth0-spa-js/2.1/auth0-spa-js.production.js"></script>
+       <script src="https://kit.fontawesome.com/4a2b0555e5.js" crossorigin="anonymous"></script>
+     </head>
+     <body>
+       <nav class="navbar">
+         <div class="nav-brand">MyPetID</div>
+         <div class="nav-menu" id="nav-menu">
+           <button class="nav-trigger" onclick="navigate('home')">Home</button>
+           <button class="nav-trigger" onclick="navigate('dashboard')" id="dashboardBtn" style="display: none;">Dashboard</button>
+           <button class="nav-trigger" onclick="navigate('admin')" id="adminBtn" style="display: none;">Admin</button>
+           <button class="nav-trigger" onclick="navigate('contact')">Contact</button>
+           <button class="nav-trigger" onclick="navigate('location')">Location</button>
+           <button class="nav-trigger" onclick="navigate('medical')">Medical</button>
+           <button class="nav-trigger" onclick="navigate('about')">About Me</button>
+           <button class="nav-trigger" onclick="navigate('socials')">Socials</button>
+           <button class="nav-trigger" onclick="navigate('gallery')">Gallery</button>
+           <button class="nav-trigger" onclick="navigate('report-lost')">Report Lost</button>
+           <button class="nav-trigger" onclick="navigate('project-info')">Project Info</button>
+           <button class="nav-trigger" onclick="navigate('register')" id="registerBtn">Register</button>
+           <button class="nav-trigger" onclick="logout()" id="logoutBtn" style="display: none;">Logout</button>
+         </div>
+       </nav>
+       <div class="page" id="content">
+         <div class="card">
+           <div class="card-header">
+             <h1 id="page-title">Loading...</h1>
+           </div>
+           <div class="card-content">
+             <p>Loading...</p>
+           </div>
+         </div>
+       </div>
+       <div id="toast-container" class="toast" style="display: none;"></div>
+       <footer id="footer">
+         <a href="https://patreon.com/MyPetID">Support us on Patreon</a>
+       </footer>
+       <script src="/base/scripts.js"></script>
+     </body>
+     </html>
