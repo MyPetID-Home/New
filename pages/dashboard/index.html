@@ -1,1 +1,62 @@
-
+<div class="page" id="dashboard">
+       <div class="card">
+         <div class="card-header">
+           <h2>Dashboard</h2>
+         </div>
+         <div class="card-content">
+           <div id="user-info"></div>
+           <div class="form-group">
+             <label class="label" for="nfc-tag-id">NFC Tag ID</label>
+             <input class="input" id="nfc-tag-id" type="text" placeholder="Enter NFC Tag ID">
+             <button class="btn-primary" onclick="readNfcTag()">Scan NFC</button>
+           </div>
+           <div class="form-group">
+             <label class="label">Terms Agreement</label>
+             <input type="checkbox" id="agreement-checkbox">
+             <label for="agreement-checkbox">I agree to the <a href="/tos">Terms</a> and <a href="/privacy-policy">Privacy Policy</a></label>
+           </div>
+           <div class="form-group" id="qr-group" style="display: none;">
+             <img id="qr-code" src="" alt="QR Code">
+           </div>
+           <button class="btn-primary" onclick="navigate('pet-editor')">Add Pet</button>
+           <div class="tabs">
+             <button class="tabs-trigger active" onclick="showTab('pets')">Pets</button>
+             <button class="tabs-trigger" onclick="showTab('locations')">Locations</button>
+             <button class="tabs-trigger" onclick="showTab('admin')" id="admin-tab" style="display: none;">Admin</button>
+           </div>
+           <div id="pets" class="tabs-content">
+             <div id="pet-management"></div>
+           </div>
+           <div id="locations" class="tabs-content hidden">
+             <table class="table">
+               <thead>
+                 <tr>
+                   <th class="table-head">Dog</th>
+                   <th class="table-head">Latitude</th>
+                   <th class="table-head">Longitude</th>
+                   <th class="table-head">Timestamp</th>
+                 </tr>
+               </thead>
+               <tbody id="location-table"></tbody>
+             </table>
+             <iframe id="location-map" style="display: none;" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src=""></iframe>
+           </div>
+           <div id="admin" class="tabs-content hidden">
+             <table class="table">
+               <thead>
+                 <tr>
+                   <th class="table-head">Username</th>
+                   <th class="table-head">Email</th>
+                   <th class="table-head">Pets</th>
+                   <th class="table-head">Tier</th>
+                 </tr>
+               </thead>
+               <tbody id="admin-table"></tbody>
+             </table>
+           </div>
+         </div>
+       </div>
+     </div>
+     <script src="/components/auth0.js"></script>
+     <script src="/components/nfc.js"></script>
+     <script src="/pages/dashboard/dashboard.js"></script>
