@@ -1,0 +1,54 @@
+<div class="page" id="pet-editor">
+       <div class="card">
+         <div class="card-header">
+           <h2>Add/Edit Pet</h2>
+         </div>
+         <div class="card-content">
+           <form id="pet-editor-form" onsubmit="handlePetSubmit(event)">
+             <div class="form-group">
+               <label class="label" for="pet-name">Name</label>
+               <input class="input" id="pet-name" required>
+             </div>
+             <div class="form-group">
+               <label class="label" for="pet-breed">Breed</label>
+               <select class="select" id="pet-breed" required>
+                 <option value="">Select Breed</option>
+                 <option value="Labrador Retriever">Labrador Retriever</option>
+                 <option value="Golden Retriever">Golden Retriever</option>
+                 <option value="German Shepherd">German Shepherd</option>
+               </select>
+             </div>
+             <div class="form-group">
+               <label class="label" for="pet-description">Description</label>
+               <textarea class="textarea" id="pet-description"></textarea>
+             </div>
+             <div class="form-group">
+               <label class="label" for="pet-sex">Sex</label>
+               <select class="select" id="pet-sex" required>
+                 <option value="">Select Sex</option>
+                 <option value="Male">Male</option>
+                 <option value="Female">Female</option>
+               </select>
+             </div>
+             <div class="form-group">
+               <label class="label">Neutered</label>
+               <div class="toggle-group" id="neutered-group">
+                 <button class="toggle active" onclick="toggleValue('neutered', 'Yes')">Yes</button>
+                 <button class="toggle" onclick="toggleValue('neutered', 'No')">No</button>
+               </div>
+               <input type="hidden" id="pet-neutered" value="Yes">
+             </div>
+             <div class="form-group">
+               <label class="label" for="pet-age">Age</label>
+               <input class="input" id="pet-age" type="text">
+             </div>
+             <div class="form-group">
+               <label class="label" for="pet-weight">Weight</label>
+               <input class="input" id="pet-weight" type="text">
+             </div>
+             <button class="btn-primary" type="submit">Save Pet</button>
+           </form>
+         </div>
+       </div>
+     </div>
+     <script src="/pages/pet-editor/editor.js"></script>
