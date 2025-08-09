@@ -1,0 +1,129 @@
+<div class="page" id="pet-profile">
+       <div id="pet-loading" class="space-y-6">
+         <div class="card">
+           <div class="card-header">
+             <div class="skeleton h-8 w-48"></div>
+           </div>
+           <div class="card-content">
+             <div class="skeleton h-32 w-full"></div>
+           </div>
+         </div>
+       </div>
+       <div id="pet-error" class="hidden card">
+         <div class="card-content p-6 text-center">
+           <i class="fas fa-exclamation-triangle text-3xl text-red-500 mb-4"></i>
+           <h3 class="text-lg font-semibold mb-2">Pet Not Found</h3>
+           <p class="text-gray-600">The pet profile you're looking for doesn't exist or has been removed.</p>
+         </div>
+       </div>
+       <div id="pet-content" class="hidden space-y-6">
+         <div class="hero-gradient rounded-2xl p-8 text-white relative overflow-hidden">
+           <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+           <div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
+             <div class="relative">
+               <div class="w-32 h-32 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
+                 <img id="pet-photo" class="w-full h-full object-cover rounded-full hidden" alt="Pet profile photo">
+                 <div id="pet-photo-placeholder" class="w-full h-full bg-gray-300 rounded-full flex items-center justify-center">
+                   <span class="text-gray-600 text-4xl">🐕</span>
+                 </div>
+               </div>
+               <div class="absolute -bottom-2 -right-2 bg-green-500 w-8 h-8 rounded-full flex items-center justify-center">
+                 <i class="fas fa-check text-white text-sm"></i>
+               </div>
+             </div>
+             <div class="text-center md:text-left">
+               <h2 id="pet-name" class="text-3xl font-bold mb-2"></h2>
+               <p id="pet-details" class="text-lg opacity-90 mb-4"></p>
+               <div class="flex flex-wrap gap-2 justify-center md:justify-start">
+                 <span class="badge bg-white bg-opacity-20">Friendly</span>
+                 <span class="badge bg-white bg-opacity-20">Trained</span>
+                 <span class="badge bg-white bg-opacity-20">Vaccinated</span>
+               </div>
+             </div>
+           </div>
+         </div>
+         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+           <div class="card border-red-200 bg-red-50">
+             <div class="card-content p-6">
+               <div class="flex items-center mb-4">
+                 <i class="fas fa-exclamation-triangle h-6 w-6 text-red-600 mr-3"></i>
+                 <h3 class="text-xl font-semibold text-red-800">Found Me?</h3>
+               </div>
+               <p class="text-red-700 mb-4">If you've found me, please help me get back home!</p>
+               <button class="btn-primary bg-red-600 hover:bg-red-700 w-full" onclick="reportFound()">Report Found</button>
+             </div>
+           </div>
+           <div class="card border-blue-200 bg-blue-50">
+             <div class="card-content p-6">
+               <div class="flex items-center mb-4">
+                 <i class="fas fa-phone h-6 w-6 text-blue-600 mr-3"></i>
+                 <h3 class="text-xl font-semibold text-blue-800">Emergency Contact</h3>
+               </div>
+               <p class="text-blue-700 mb-4">Need immediate help? Contact my family.</p>
+               <button class="btn-primary bg-blue-600 hover:bg-blue-700 w-full" onclick="contactOwner()">Contact Owner</button>
+             </div>
+           </div>
+         </div>
+         <div class="card">
+           <div class="card-header">
+             <h3 class="flex items-center"><i class="fas fa-heart h-5 w-5 mr-2"></i>About <span id="pet-name-about"></span></h3>
+           </div>
+           <div class="card-content">
+             <p id="pet-description" class="text-gray-700 mb-4"></p>
+             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+               <div class="bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg p-4 text-white text-center">
+                 <i class="fas fa-birthday-cake text-2xl mb-2"></i>
+                 <p class="text-sm opacity-90">Age</p>
+                 <p id="pet-age" class="font-bold"></p>
+               </div>
+               <div class="bg-gradient-to-br from-green-500 to-teal-600 rounded-lg p-4 text-white text-center">
+                 <i class="fas fa-weight text-2xl mb-2"></i>
+                 <p class="text-sm opacity-90">Weight</p>
+                 <p id="pet-weight" class="font-bold"></p>
+               </div>
+               <div class="bg-gradient-to-br from-purple-500 to-blue-600 rounded-lg p-4 text-white text-center">
+                 <i class="fas fa-palette text-2xl mb-2"></i>
+                 <p class="text-sm opacity-90">Coat</p>
+                 <p id="pet-coat" class="font-bold"></p>
+               </div>
+               <div class="bg-gradient-to-br from-pink-500 to-rose-600 rounded-lg p-4 text-white text-center">
+                 <i class="fas fa-eye text-2xl mb-2"></i>
+                 <p class="text-sm opacity-90">Eyes</p>
+                 <p id="pet-eye-color" class="font-bold"></p>
+               </div>
+             </div>
+           </div>
+         </div>
+         <div class="tabs">
+           <button class="tabs-trigger active" onclick="showTab('pet-info')">Info</button>
+           <button class="tabs-trigger" onclick="showTab('pet-medical')">Medical</button>
+           <button class="tabs-trigger" onclick="showTab('pet-socials')">Socials</button>
+         </div>
+         <div id="pet-info" class="tabs-content card">
+           <div class="card-content">
+             <p id="pet-personality"></p>
+             <p id="pet-loves"></p>
+             <p id="pet-quirks"></p>
+           </div>
+         </div>
+         <div id="pet-medical" class="tabs-content card hidden">
+           <div class="card-content">
+             <p id="pet-medical-info"></p>
+           </div>
+         </div>
+         <div id="pet-socials" class="tabs-content card hidden">
+           <div class="card-content">
+             <p id="pet-socials"></p>
+           </div>
+         </div>
+         <div class="card">
+           <div class="card-header">
+             <h3>Location</h3>
+           </div>
+           <div class="card-content">
+             <iframe id="location-map" style="display: none;" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src=""></iframe>
+           </div>
+         </div>
+       </div>
+     </div>
+     <script src="/pages/pet-profile/profile.js"></script>
